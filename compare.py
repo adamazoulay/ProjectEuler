@@ -15,9 +15,8 @@ if __name__=="__main__":
     cur = 1
     for question in questions:
         # Run each and list in one row for both
-
         start = time.time()
-        subprocess.run("python " + question)
+        subprocess.run("python " + question, stdout=subprocess.DEVNULL)
         stop = time.time()
         delta = stop - start
         delta = "{:10.4f}".format(delta)
