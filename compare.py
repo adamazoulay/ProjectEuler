@@ -1,4 +1,4 @@
-import os, time, subprocess
+import os, timeit
 
 if __name__=="__main__":
     f = []
@@ -15,10 +15,9 @@ if __name__=="__main__":
     cur = 1
     for question in questions:
         # Run each and list in one row for both
-        start = time.time()
-        subprocess.run("python " + question, stdout=subprocess.DEVNULL)
-        stop = time.time()
-        delta = stop - start
+        with open(question, 'r') as file:
+            data = file.read()
+            delta = timeit.Timer(data).timeit()
         delta = "{:10.4f}".format(delta)
 
         if cur == 1:
