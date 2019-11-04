@@ -1,0 +1,57 @@
+class Tree:
+    def __init__(self, node):
+        self.node = node
+        self.down = False
+        self.right = False
+
+    def add_down(self, down):
+        self.down = down
+
+    def add_right(self, right):
+        self.right = right
+
+    def get_down(self):
+        return self.down
+
+    def get_right(self):
+        return self.right
+
+    def get_node(self):
+        return self.node
+
+    def is_leaf(self):
+        if (self.down == False and self.right == False):
+            return True
+        return False
+
+def path(node):
+    n = 20
+    cur = node.get_node()
+    x = cur[0]
+    y = cur[1]
+
+    # Check down
+    if y < n:
+        node.add_down( Tree( (x, y + 1) ))
+        path(node.get_down())
+
+    # Check right
+    if x < n:
+        node.add_right( Tree( (x + 1, y) ))
+        path(node.get_right())
+
+def count_leaves(node):
+    if node == False:
+        return 0
+    if node.is_leaf():
+        return 1
+
+    return ( count_leaves(node.get_down()) + count_leaves(node.get_right()) )
+
+if __name__=="__main__":
+    root = Tree((0,0))
+    # Build the tree with all the paths
+    path(root)
+
+    # Get the total number of leaves which is the number of paths
+    print(count_leaves(root))

@@ -1,0 +1,34 @@
+if __name__=="__main__":
+    n = 3
+    format_str = "{0:0" + str(2 * n) + "b}"
+    total = 2**(2 * n)
+    sub = 0
+
+    # Get the total number of leaves which is the number of paths
+    for path in range(total):
+        binary = format_str.format(path)
+
+        prct = 2 * path / total
+        if path % 10000 == 0:
+            print(prct)
+
+        if (binary[0] == "1"):
+            break
+
+        check = 0
+        for digit in binary:
+            if digit == "0":
+                check -= 1
+            elif digit == "1":
+                check += 1
+
+            if check > n or check < -n:
+                sub -= 1
+                check = 0
+                break
+
+        if check != 0:
+            sub -= 1
+
+    sub *= 2
+    print(total + sub)
