@@ -49,9 +49,9 @@ def count_leaves(node):
     return ( count_leaves(node.get_down()) + count_leaves(node.get_right()) )
 
 if __name__=="__main__":
-    root = Tree((0,0))
+    root = Tree((0,1))
     # Build the tree with all the paths
     path(root)
 
     # Get the total number of leaves which is the number of paths
-    print(count_leaves(root))
+    print(2 * count_leaves(root))

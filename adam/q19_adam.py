@@ -1,11 +1,11 @@
 
 if __name__=="__main__":
     cur_day = 1
-    year = 1900
+    year = 1901
 
     # Find the day number for all first days of the month
     first_days = [1]
-    while year < 1901:
+    while year < 2001:
         cur_day += 31  # January
         first_days.append(cur_day)
         if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
@@ -36,15 +36,14 @@ if __name__=="__main__":
         first_days.append(cur_day)
         year += 1
 
-    #first_days.pop()
+    first_days.pop()
     max = first_days[-1]
     sundays = 7
     total = 0
     while sundays < max:
         if sundays in first_days:
-            print(sundays)
             total += 1
         sundays += 7
 
 
-    #print(total)
+    print(total - 2) # -2 for first year, 1900

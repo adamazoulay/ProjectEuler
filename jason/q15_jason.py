@@ -42,4 +42,4 @@ def lattice_paths(grid):
 
 
 if __name__ == "__main__":
-    lattice_paths(10)
+    lattice_paths(12)
