@@ -1,5 +1,5 @@
 if __name__=="__main__":
-    n = 3
+    n = 10
     format_str = "{0:0" + str(2 * n) + "b}"
     total = 2**(2 * n)
     sub = 0

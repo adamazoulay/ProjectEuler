@@ -25,7 +25,7 @@ class Tree:
         return False
 
 def path(node):
-    n = 20
+    n = 10
     cur = node.get_node()
     x = cur[0]
     y = cur[1]

@@ -9,17 +9,19 @@ def build_tree(x_pos, y_pos):
     else:
         current_node.down_child = build_tree(x_pos, y_pos - 1)
         current_node.right_child = build_tree(x_pos - 1, y_pos)
-    print(current_node.x_pos, " ", current_node.y_pos, " ", current_node.is_bottom)
+    # print(current_node.x_pos, " ", current_node.y_pos, " ", current_node.is_bottom)
     return current_node
 
 
 def count_bottom_nodes(root_node):
-    # if root_node is None:
-    #     return 0
-    # # print(root_node.x_pos, root_node.y_pos)
-    # return 1 + count_bottom_nodes(root_node.down_child) + count_bottom_nodes(root_node.right_child)
+    if root_node is None:
+        return 0
+    # print(root_node.x_pos, root_node.y_pos)
+    if root_node.is_bottom:
+        return 1 + count_bottom_nodes(root_node.down_child) + count_bottom_nodes(root_node.right_child)
 
-    if 
+    return count_bottom_nodes(root_node.down_child) + count_bottom_nodes(root_node.right_child)
+
 
 
 class binary_tree_node:
@@ -36,7 +38,7 @@ class binary_tree_node:
 
 def lattice_paths(grid):
     current_node = build_tree(grid, grid - 1)
-    print(count_bottom_nodes(current_node))
+    print(2 * count_bottom_nodes(current_node))
 
 
 if __name__ == "__main__":
