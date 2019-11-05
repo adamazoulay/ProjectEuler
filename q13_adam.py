@@ -106,6 +106,7 @@ if __name__=="__main__":
     total = 0
     max_len = 20
     for i in range(max_len):
+        print(i)
         factor = 10**(max_len - i)
         for line in nums:
             digi = int(line[i])
