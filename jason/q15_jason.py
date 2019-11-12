@@ -1,4 +1,7 @@
 # Template file for Project Euler questions
+import math
+
+
 def build_tree(x_pos, y_pos):
     current_node = binary_tree_node(x_pos, y_pos)
     if x_pos < 0 or y_pos < 0:
@@ -23,7 +26,6 @@ def count_bottom_nodes(root_node):
     return count_bottom_nodes(root_node.down_child) + count_bottom_nodes(root_node.right_child)
 
 
-
 class binary_tree_node:
     def __init__(self, x_pos, y_pos):
         self.down_child = None
@@ -36,10 +38,14 @@ class binary_tree_node:
             self.is_bottom = False
 
 
-def lattice_paths(grid):
-    current_node = build_tree(grid, grid - 1)
-    print(2 * count_bottom_nodes(current_node))
+def lattice_paths(x, y):
+    current_node = build_tree(x, y)
+    print( count_bottom_nodes(current_node))
 
 
 if __name__ == "__main__":
-    lattice_paths(12)
+    lattice_paths(2, 2)
+    x = (math.factorial(2*20)) / (math.factorial(20) * math.factorial(20))
+    print(x)
+
+
